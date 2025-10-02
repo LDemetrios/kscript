@@ -108,7 +108,7 @@ context(ctx: ApplicationContext) fun resolve(config: List<ConfigEntry>, sourceFi
             if (entry.url != null) {
                 repositories.add("${entry.name}(${entry.url})")
             } else {
-                repositories.add(entry.name)
+                repositories.add(entry.name + "()")
             }
         }
 
@@ -116,7 +116,7 @@ context(ctx: ApplicationContext) fun resolve(config: List<ConfigEntry>, sourceFi
             if (entry.url != null) {
                 pluginRepos.add("${entry.name}(${entry.url})")
             } else {
-                pluginRepos.add(entry.name)
+                pluginRepos.add(entry.name + "()")
             }
         }
 

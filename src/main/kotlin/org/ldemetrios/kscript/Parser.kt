@@ -49,7 +49,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
                     .takeWhile { it.isLetter() || it == '"' }
                 val scope = DependencyScope.Custom(scopePart.filter { it.isLetter() })
                 val (group, name, version) = args
-                    .substringAfter(",")
+                    .substringAfter(",", missingDelimiterValue = "")
                     .parseStringLiteral()
                     .let { "$it:+" } // If no version, use latest
                     .split(":")
@@ -65,7 +65,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
 
                 val idPart = content.substringBefore(',')
                 val version = content
-                    .substringAfter(",")
+                    .substringAfter(",", missingDelimiterValue = "")
                     .trim()
                     .takeIf { it.isNotEmpty() }
 
@@ -77,7 +77,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
                     "org.gradle.$idPart"
                 }
 
-                add(PluginEntry(id, version, origin))
+                add(PluginEntry(id, version?.parseStringLiteral(), origin))
             }
 
             line.startsWith("repo") ||
@@ -89,7 +89,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
 
                 val name = content.substringBefore(',')
                 val url = content
-                    .substringAfter(',')
+                    .substringAfter(',', missingDelimiterValue = "")
                     .trim()
                     .takeIf { it.isNotEmpty() }
 
