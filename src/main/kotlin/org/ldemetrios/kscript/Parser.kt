@@ -82,8 +82,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
 
             line.startsWith("repo") ||
                 line.startsWith("pluginRepo") -> {
-                val content = line.removePrefix("repo")
-                    .substringAfter("(")
+                val content = line.substringAfter("(")
                     .removeSuffix(")")
                     .trim()
 

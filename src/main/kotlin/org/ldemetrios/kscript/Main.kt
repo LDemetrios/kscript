@@ -45,11 +45,6 @@ class ApplicationContext : CliktCommand(
         help = "The Gradle home directory."
     ).file(mustExist = true, canBeFile = false, canBeDir = true)
 
-    val clean by option(
-        "--clean",
-        help = "Clear build cache. (reserved, not supported yet)"
-    ).flag()
-
     val logLevel by mutuallyExclusiveOptions(
         option("--debug", help = "Debug mode.").flag().convert { LogLevel.DEBUG },
         option("--info", help = "Info mode.").flag().convert { LogLevel.INFO },
