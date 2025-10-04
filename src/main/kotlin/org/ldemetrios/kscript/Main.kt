@@ -99,6 +99,7 @@ class ApplicationContext : CliktCommand(
         } else {
             info { "No config file specified" }
         }
+        debug { "[ApplicationContext] Found ${functions.size} functions: ${functions.keys.joinToString(", ")}" }
         info { "[ApplicationContext] Processing source file's config" }
         processedConfig.preprocess(inputFile?.toPath(), configPart, functions)
 

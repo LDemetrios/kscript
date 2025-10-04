@@ -160,7 +160,7 @@ context(ctx: ApplicationContext) fun parse(origin: Path?, lines: List<String>): 
             }
 
             line.startsWith("define") -> {
-                val name = line.substringBefore("(").substringAfter("(")
+                val name = line.substringBefore("(").substringAfter(" ")
                 val argNames = line
                     .substringAfter("(")
                     .substringBefore(")")

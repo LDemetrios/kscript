@@ -12,7 +12,7 @@ enum class LogLevel {
 
 context(ctx: ApplicationContext) inline fun log(level: LogLevel, message: () -> String) {
     if (level >= ctx.logLevel) {
-        println("[$level] ${message()}")
+        System.err.println("[$level] ${message()}")
     }
 }
 context(ctx: ApplicationContext) inline fun debug(message: () -> String) {

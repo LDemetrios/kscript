@@ -19,7 +19,7 @@ public class NoExceptAspect {
     fun wrapWithTryCatch(joinPoint: ProceedingJoinPoint): Any? = try {
         joinPoint.proceed();
     } catch (t: Throwable) {
-        System.err.println("Exception in @NoExcept method: " + joinPoint.getSignature());
+        println("Exception in @NoExcept method: " + joinPoint.getSignature());
         t.printStackTrace();
         exitProcess(1);
     }

@@ -173,7 +173,7 @@ context(ctx: ApplicationContext) fun resolve(config: List<ConfigEntry>, sourceFi
     settingsFile.append("    }\n")
     settingsFile.append("}\n\n")
 
-    buildFile.append("application.mainClass = \"kscript.EntryPointKt\"")
+    buildFile.append("application.mainClass = \"kscript.EntryPointKt\"\n")
 
     for ((option, value) in options) when (option) {
         "wrapper.distributionBase",

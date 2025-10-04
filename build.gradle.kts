@@ -22,10 +22,11 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.github.ajalt.clikt:clikt:+")
-    runtimeOnly("com.github.ajalt.clikt:clikt:+")
+    implementation("com.github.ajalt.clikt:clikt:+")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
     implementation("org.aspectj:aspectjrt:1.9.23")
+    testImplementation("io.kotest:kotest-runner-junit5:+")
+    testImplementation("io.kotest:kotest-assertions-core:+")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -36,8 +37,7 @@ application {
     mainClass = "org.ldemetrios.kscript.MainKt"
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
+tasks.withType<Test> {
     useJUnitPlatform()
 }
 
