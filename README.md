@@ -1,7 +1,7 @@
 # KScript
 
-This is a cli app to launch Kotlin scripts. It allows adding dependencies and other configuration through configuration
-in the comments.
+This is a cli app to launch Kotlin scripts. It allows adding dependencies and other configuration through 
+ comments, prefixed by `!`. It then creates a gradle project and launches it.
 
 *__Disclaimer__: This tool was created in a cave, with a bunch of scraps. I'm not planning to continue development apart
 from fixing minor bugs. However, I welcome good pull requests. There are a few ideas that I'm too lazy to implement, but
