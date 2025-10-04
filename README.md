@@ -70,7 +70,7 @@ arguments `-jar kscript.jar ...`, and executes jar with arguments `"$0" -- "$@"`
 the rest of the arguments (`"$@"`) after `--`. Then, calling it with arguments will work pretty much as you'd expect:
 
 ```bash
-./testsuite/Example.kts LDemetrios
+./testsuite/Example1.kts LDemetrios
 ```
 
 prints `Hello, LDemetrios`.
